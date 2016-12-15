@@ -1,5 +1,3 @@
-import pickle
-import random
 import webapp2
 
 from weather import weather, WeatherHandler
