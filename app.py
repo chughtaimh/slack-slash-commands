@@ -13,5 +13,7 @@ class Home(webapp2.RequestHandler):
 		self.response.write('Moe Slack Commands')
 
 
-app = webapp2.WSGIApplication([(r'/', Home), (r'/weather', WeatherHandler)],
+app = webapp2.WSGIApplication([(r'/', Home), 
+							   (r'/weather', WeatherHandler),
+							   ],
 	debug=True)
