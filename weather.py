@@ -1,6 +1,8 @@
 import json
-import requests
 import mypy
+import pickle
+import requests
+import webapp2
 
 APIKEY = '0f02e726e5ba577af096f8d3a2efc18b'
 BASEURL = 'http://api.openweathermap.org/data/2.5/weather'
