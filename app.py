@@ -12,7 +12,7 @@ class Home(webapp2.RequestHandler):
 	def get(self):
 		"""Receives a GET request"""
 
-		self.response.write('Slack Weather Command')
+		self.response.write('Moe Slack Commands')
 
 
 app = webapp2.WSGIApplication([(r'/', Home), (r'/weather', WeatherHandler)],
