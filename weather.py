@@ -1,4 +1,7 @@
+from __future__ import division
+
 import json
+import math
 import mypy
 import pickle
 import requests
@@ -55,11 +58,18 @@ def weather(zip_code):
 	"""
 	Returns the a dict containing weather for :zip_code:.
 	:params:
-			zip_code : str -- zip code to search
+					zip_code : str -- zip code to search
 	:return:
-			weather : dict -- weather for :zip_code:
+					weather : dict -- weather for :zip_code:
 	"""
 
 	r = requests.post(BASEURL, params=dict(APPID=APIKEY, zip=zip_code))
 	content = json.loads(r.content)
-	return content['main']
+	weather = content['main']
+
+	# temp comes in Kelvin
+	for t in ('temp_min', 'temp_max', 'temp'):
+		weather[t] = math.floor(
+			9/5 * (weather[t] - 273) + 32)    # K -> F formula
+
+	return weather
